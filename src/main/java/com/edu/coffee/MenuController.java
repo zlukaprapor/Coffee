@@ -2,6 +2,8 @@ package com.edu.coffee;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+
 
 public class MenuController {
 
@@ -18,6 +20,28 @@ public class MenuController {
     private Button optionsButton;
 
     @FXML
+    private Label messageLabel;
+
+    @FXML
+    private void menuButtonClicked() {
+        messageLabel.setText("Привіт! Це Меню.");
+    }
+
+    @FXML
+    private void ordersButtonClicked() {
+        messageLabel.setText("Привіт! Це Замовлення.");
+    }
+
+    @FXML
+    private void queueButtonClicked() {
+        messageLabel.setText("Привіт! Це Черга.");
+    }
+
+    @FXML
+    private void optionsButtonClicked() {
+        messageLabel.setText("Привіт! Це Опції.");
+    }
+    @FXML
     private void initialize() {
         // Встановлюємо текст кнопок
         menuButton.setText("Меню");
@@ -25,5 +49,6 @@ public class MenuController {
         queueButton.setText("Черга");
         optionsButton.setText("Опції");
     }
+
 }
 
