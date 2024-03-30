@@ -19,6 +19,7 @@
     -fx-font-size: 20px;
     -fx-font-weight: bold;
 }
+
 .button:pressed, .button:focused {
     -fx-background-color: #FCAD38;
 }
@@ -35,6 +36,7 @@
     -fx-translate-x: 30px; /* Зміщення вправо на 20px */
     -fx-translate-y: 30px;
 }
+
 .message-label-right {
     -fx-font-size: 20px;
     -fx-font-weight: bold;
@@ -46,4 +48,25 @@
     -fx-max-height: 550px; /* Жорстка висота */
     -fx-translate-x: 150px; /* Зміщення вправо на 20px */
     -fx-translate-y: 30px;
+}
+
+.message-label {
+    -fx-font-size: 20px; /* Розмір шрифту */
+    -fx-font-weight: bold; /* Жирний стиль шрифту */
+    -fx-text-fill: #333333; /* Колір тексту */
+    -fx-font-family: "Arial"; /* Шрифт */
+    -fx-text-alignment: left; /* Вирівнювання тексту по лівому краю */
+    /* Додайте інші властивості за потреби */
+}
+
+.meal-name {
+    -fx-font-size: 24px; /* Розмір шрифту для назви страви */
+    -fx-font-weight: bold; /* Жирний стиль шрифту для назви страви */
+    -fx-text-fill: #FFA500; /* Колір тексту для назви страви */
+}
+
+.meal-description {
+    -fx-font-size: 18px; /* Розмір шрифту для опису страви */
+    -fx-font-weight: normal; /* Нормальний стиль шрифту для опису страви */
+    -fx-text-fill: #666666; /* Колір тексту для опису страви */
 }
