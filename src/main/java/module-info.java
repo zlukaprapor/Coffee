@@ -7,6 +7,7 @@ module com.edu.coffee {
     requires net.synedra.validatorfx;
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
+    requires json.simple;
 
     opens com.edu.coffee to javafx.fxml;
     exports com.edu.coffee;

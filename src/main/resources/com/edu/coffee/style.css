@@ -2,9 +2,10 @@
     -fx-background-image: url("img/background.png");
     -fx-background-size: cover;
     -fx-border-style: solid;
-    -fx-border-width: 0 0 2px 0; /* Товщина лінії (верх, право, низ, ліво) */
-    -fx-border-color: black; /* Колір лінії */
-    -fx-border-insets: 0 0 610px 0; /* Опускаємо лінію вниз на 50 пікселів */
+    /*-fx-border-width: 0 0 2px 0; !* Товщина лінії (верх, право, низ, ліво) *!*/
+    /*-fx-border-color: black; !* Колір лінії *!*/
+    /*-fx-border-insets: 0 0 610px 0; !* Опускаємо лінію вниз на 50 пікселів *!*/
+
 }
 
 .button {
@@ -22,12 +23,27 @@
     -fx-background-color: #FCAD38;
 }
 
-.message-label {
+.message-label-left {
     -fx-font-size: 20px;
     -fx-font-weight: bold;
-    -fx-min-width: 200px;
-    -fx-max-width: 200px;
-    -fx-min-height: 40px;
-    -fx-max-height: 40px;
-    -fx-background-color: #f6f6f4;
+    -fx-background-color: rgba(255, 255, 255, 0.3);
+    -fx-background-radius: 10px;
+    -fx-min-width: 540px; /* Жорстка ширина */
+    -fx-max-width: 540px; /* Жорстка ширина */
+    -fx-min-height: 550px; /* Жорстка висота */
+    -fx-max-height: 550px; /* Жорстка висота */
+    -fx-translate-x: 30px; /* Зміщення вправо на 20px */
+    -fx-translate-y: 30px;
+}
+.message-label-right {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-background-color: rgba(255, 255, 255, 0.3);
+    -fx-background-radius: 10px;
+    -fx-min-width: 540px; /* Жорстка ширина */
+    -fx-max-width: 540px; /* Жорстка ширина */
+    -fx-min-height: 550px; /* Жорстка висота */
+    -fx-max-height: 550px; /* Жорстка висота */
+    -fx-translate-x: 150px; /* Зміщення вправо на 20px */
+    -fx-translate-y: 30px;
 }

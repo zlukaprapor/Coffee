@@ -6,31 +6,37 @@
 
 <?import java.net.URL?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
 <StackPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.edu.coffee.MenuController">
     <stylesheets>
         <URL value="@style.css" />
     </stylesheets >
-    <HBox spacing="120" alignment="TOP_CENTER" styleClass="background">
-        <Button fx:id="menuButton"
-                mnemonicParsing="false"
-                styleClass="button" text="Меню"
-                onAction="#menuButtonClicked"/>
-        <Button fx:id="ordersButton"
-                mnemonicParsing="false"
-                styleClass="button"
-                text="Замовлення"
-                onAction="#ordersButtonClicked"/>
-        <Button fx:id="queueButton"
-                mnemonicParsing="false"
-                styleClass="button"
-                text="Черга"
-                onAction="#queueButtonClicked"/>
-        <Button fx:id="optionsButton"
-                mnemonicParsing="false"
-                styleClass="button"
-                text="Опції"
-                onAction="#optionsButtonClicked"/>
-    </HBox>
-    <Label fx:id="messageLabel" styleClass="message-label"/>
+    <VBox alignment="TOP_CENTER" styleClass="background">
+        <HBox spacing="120" alignment="TOP_CENTER" >
+            <Button fx:id="menuButton"
+                    mnemonicParsing="false"
+                    styleClass="button" text="Меню"
+                    onAction="#menuButtonClicked"/>
+            <Button fx:id="ordersButton"
+                    mnemonicParsing="false"
+                    styleClass="button"
+                    text="Замовлення"
+                    onAction="#ordersButtonClicked"/>
+            <Button fx:id="queueButton"
+                    mnemonicParsing="false"
+                    styleClass="button"
+                    text="Черга"
+                    onAction="#queueButtonClicked"/>
+            <Button fx:id="optionsButton"
+                    mnemonicParsing="false"
+                    styleClass="button"
+                    text="Опції"
+                    onAction="#optionsButtonClicked"/>
+        </HBox>
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Label fx:id="messageLabelLeft" styleClass="message-label-left"/>
+            <Label fx:id="messageLabelRight" styleClass="message-label-right"/>
+            <!-- Додайте сюди інші елементи, які можуть знадобитися -->
+        </HBox>
+    </VBox>
 </StackPane>
-

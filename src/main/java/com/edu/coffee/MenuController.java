@@ -20,26 +20,30 @@ public class MenuController {
     private Button optionsButton;
 
     @FXML
-    private Label messageLabel;
+    private Label messageLabelLeft;
+
+    @FXML
+    private Label messageLabelRight;
+
 
     @FXML
     private void menuButtonClicked() {
-        messageLabel.setText("Привіт! Це Меню.");
+        MenuScene.setMenuLabelText(messageLabelLeft);
     }
 
     @FXML
     private void ordersButtonClicked() {
-        messageLabel.setText("Привіт! Це Замовлення.");
+        messageLabelRight.setText("Привіт! Це Замовлення.");
     }
 
     @FXML
     private void queueButtonClicked() {
-        messageLabel.setText("Привіт! Це Черга.");
+        messageLabelRight.setText("Привіт! Це Черга.");
     }
 
     @FXML
     private void optionsButtonClicked() {
-        messageLabel.setText("Привіт! Це Опції.");
+        messageLabelRight.setText("Привіт! Це Опції.");
     }
     @FXML
     private void initialize() {
