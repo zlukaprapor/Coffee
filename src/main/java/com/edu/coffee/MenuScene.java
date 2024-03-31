@@ -1,51 +1,66 @@
 package com.edu.coffee;
 
 import javafx.scene.control.Label;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
+import javafx.scene.layout.VBox;
 
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.util.List;
 
+/**
+ * Клас MenuScene відповідає за налаштування сцени з відображенням меню з обідами та напоями.
+ */
 public class MenuScene {
 
-    public static void setMenuLabelText(Label messageLabelLeft) {
-        try {
-            // Отримання потоку вводу до ресурсу JSON
-            InputStream inputStream = MenuScene.class.getResourceAsStream("/com/edu/coffee/complex_lunches.json");
-
-            // Перевірка, чи потік вводу не є нульовим
-            if (inputStream != null) {
-                // Парсер JSON
-                JSONParser parser = new JSONParser();
-
-                // Зчитування JSON-файлу
-                JSONObject menuObject = (JSONObject) parser.parse(new InputStreamReader(inputStream));
-
-                // Створення рядка для зберігання тексту для messageLabel
-                StringBuilder message = new StringBuilder();
-
-                // Отримання масиву об'єктів із JSON-об'єкту
-                JSONArray menuArray = (JSONArray) menuObject.get("meals");
-
-                // Перебір кожного об'єкту у масиві
-                for (Object obj : menuArray) {
-                    JSONObject menu = (JSONObject) obj;
-                    String name = (String) menu.get("name");
-                    String dishes = (String) menu.get("dishes");
-                    long price = (long) menu.get("price");
-                    message.append(name).append(": ").append(dishes).append(" - ").append(price).append(" грн\n");
-                }
-
-                // Встановлення тексту для messageLabel
-                messageLabelLeft.setText(message.toString());
-            } else {
-                // Обробка ситуації, коли ресурс не знайдено
-                System.err.println("Ресурс complex_lunches.json не знайдено.");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+    /**
+     * Метод setupMenuScene налаштовує сцену з відображенням обідів та напоїв.
+     *
+     * @param messageLabelLeft  мітка, в яку вставляється відображення обідів
+     * @param messageLabelRight мітка, в яку вставляється відображення напоїв
+     */
+    public static void setupMenuScene(Label messageLabelLeft, Label messageLabelRight) {
+        // Створення VBox для відображення обідів
+        VBox mealBox = new VBox();
+        // Додавання мітки для відображення заголовка "Обіди:"
+        Label viewLabel = new Label("Обіди:\n");
+        viewLabel.getStyleClass().add("view-label");
+        mealBox.getChildren().add(viewLabel);
+        // Отримання списку обідів з класу Item
+        List<Item> meals = Item.readMeals();
+        // Додавання інформації про обіди до VBox
+        for (Item meal : meals) {
+            Label nameLabel = new Label("Назва: " + meal.getName());
+            nameLabel.getStyleClass().add("meal-name");
+            Label priceLabel = new Label("Ціна: " + meal.getPrice());
+            priceLabel.getStyleClass().add("meal-price");
+            Label dishesLabel = new Label("Страви: " + meal.getDishes());
+            dishesLabel.getStyleClass().add("meal-description");
+            VBox mealInfo = new VBox(nameLabel, priceLabel, dishesLabel);
+            mealInfo.getStyleClass().add("meal-info");
+            mealBox.getChildren().add(mealInfo);
         }
+        // Встановлення графічного зображення VBox з обідами у мітку messageLabelLeft
+        messageLabelLeft.setGraphic(mealBox);
+
+        // Створення VBox для відображення напоїв
+        VBox drinkBox = new VBox();
+        // Додавання мітки для відображення заголовка "Напої:"
+        Label viewLabelDrinks = new Label("Напої:\n");
+        viewLabelDrinks.getStyleClass().add("view-label");
+        drinkBox.getChildren().add(viewLabelDrinks);
+        // Отримання списку напоїв з класу Item
+        List<Item> drinks = Item.readDrinks();
+        // Додавання інформації про напої до VBox
+        for (Item drink : drinks) {
+            Label nameLabel = new Label("Назва: " + drink.getName());
+            nameLabel.getStyleClass().add("drink-name");
+            Label priceLabel = new Label("Ціна: " + drink.getPrice());
+            priceLabel.getStyleClass().add("drink-price");
+            Label dishesLabel = new Label("Напої: " + drink.getDishes());
+            dishesLabel.getStyleClass().add("drink-description");
+            VBox drinkInfo = new VBox(nameLabel, priceLabel, dishesLabel);
+            drinkInfo.getStyleClass().add("drink-info");
+            drinkBox.getChildren().add(drinkInfo);
+        }
+        // Встановлення графічного зображення VBox з напоями у мітку messageLabelRight
+        messageLabelRight.setGraphic(drinkBox);
     }
 }

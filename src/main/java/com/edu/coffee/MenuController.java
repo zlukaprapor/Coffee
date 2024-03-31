@@ -3,11 +3,10 @@ package com.edu.coffee;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import org.json.simple.JSONArray;
 
-import java.util.List;
-
-
+/**
+ * Клас-контролер для управління віджетами і обробки подій у GUI меню.
+ */
 public class MenuController {
 
     @FXML
@@ -29,49 +28,48 @@ public class MenuController {
     private Label messageLabelRight;
 
 
-    private List<Item> items;
-
+    /**
+     * Обробник події натискання кнопки "Меню".
+     * Викликає метод setupMenuScene з класу MenuScene, передаючи необхідні елементи Label.
+     */
     @FXML
     private void menuButtonClicked() {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("Обіди:\n");
-        List<Item> meals = Item.readMeals();
-        for (Item meal : meals) {
-            stringBuilder.append("Назва: ").append(meal.getName()).append(", ");
-            stringBuilder.append("Ціна: ").append(meal.getPrice()).append(", ");
-            stringBuilder.append("Страви: ").append(meal.getDishes()).append("\n");
-        }
-        messageLabelLeft.setText(stringBuilder.toString());
-
-        StringBuilder drinkBuilder = new StringBuilder();
-        drinkBuilder.append("Напої:\n");
-        List<Item> drinks = Item.readDrinks();
-        for (Item drink : drinks) {
-            drinkBuilder.append("Назва: ").append(drink.getName()).append(", ");
-            drinkBuilder.append("Ціна: ").append(drink.getPrice()).append(", ");
-            drinkBuilder.append("Напої: ").append(drink.getDishes()).append("\n");
-        }
-        messageLabelRight.setText(drinkBuilder.toString());
+        MenuScene.setupMenuScene(messageLabelLeft, messageLabelRight);
     }
 
+    /**
+     * Обробник події натискання кнопки "Замовлення".
+     * Встановлює текст у messageLabelRight на "Привіт! Це Замовлення."
+     */
     @FXML
     private void ordersButtonClicked() {
         messageLabelRight.setText("Привіт! Це Замовлення.");
     }
 
+    /**
+     * Обробник події натискання кнопки "Черга".
+     * Встановлює текст у messageLabelRight на "Привіт! Це Черга."
+     */
     @FXML
     private void queueButtonClicked() {
         messageLabelRight.setText("Привіт! Це Черга.");
     }
 
+    /**
+     * Обробник події натискання кнопки "Опції".
+     * Встановлює текст у messageLabelRight на "Привіт! Це Опції."
+     */
     @FXML
     private void optionsButtonClicked() {
         messageLabelRight.setText("Привіт! Це Опції.");
     }
 
+    /**
+     * Метод, що викликається під час ініціалізації контролера.
+     * Встановлює текст для кнопок у вікні.
+     */
     @FXML
     private void initialize() {
-        // Встановлюємо текст кнопок
         menuButton.setText("Меню");
         ordersButton.setText("Замовлення");
         queueButton.setText("Черга");
@@ -79,4 +77,3 @@ public class MenuController {
     }
 
 }
-

@@ -1,72 +1,106 @@
 .background {
+    /* Зображення тла */
     -fx-background-image: url("img/background.png");
-    -fx-background-size: cover;
-    -fx-border-style: solid;
-    /*-fx-border-width: 0 0 2px 0; !* Товщина лінії (верх, право, низ, ліво) *!*/
-    /*-fx-border-color: black; !* Колір лінії *!*/
-    /*-fx-border-insets: 0 0 610px 0; !* Опускаємо лінію вниз на 50 пікселів *!*/
-
+    -fx-background-size: cover; /* Покриває всю область */
+    -fx-border-style: solid; /* Суцільна межа */
 }
 
 .button {
-    -fx-min-width: 200px;
-    -fx-max-width: 200px;
-    -fx-min-height: 40px;
-    -fx-max-height: 40px;
-    -fx-background-color: #E8BD24;
-    -fx-background-radius: 10px;
-    -fx-translate-y: 10px;
-    -fx-font-size: 20px;
-    -fx-font-weight: bold;
+    /* Стилі кнопок */
+    -fx-min-width: 200px; /* Мінімальна ширина */
+    -fx-max-width: 200px; /* Максимальна ширина */
+    -fx-min-height: 40px; /* Мінімальна висота */
+    -fx-max-height: 40px; /* Максимальна висота */
+    -fx-background-color: #E8BD24; /* Колір тла */
+    -fx-background-radius: 10px; /* Радіус межі */
+    -fx-translate-y: 10px; /* Вертикальний зсув */
+    -fx-font-size: 20px; /* Розмір шрифту */
+    -fx-font-weight: bold; /* Жирний шрифт */
 }
 
 .button:pressed, .button:focused {
-    -fx-background-color: #FCAD38;
+    /* Стилі кнопок при натисканні або фокусі */
+    -fx-background-color: #FCAD38; /* Колір тла */
 }
 
 .message-label-left {
-    -fx-font-size: 20px;
-    -fx-font-weight: bold;
-    -fx-background-color: rgba(255, 255, 255, 0.3);
-    -fx-background-radius: 10px;
-    -fx-min-width: 540px; /* Жорстка ширина */
-    -fx-max-width: 540px; /* Жорстка ширина */
-    -fx-min-height: 550px; /* Жорстка висота */
-    -fx-max-height: 550px; /* Жорстка висота */
-    -fx-translate-x: 30px; /* Зміщення вправо на 20px */
-    -fx-translate-y: 30px;
+    /* Стилі мітки повідомлення зліва */
+    -fx-font-size: 20px; /* Розмір шрифту */
+    -fx-font-weight: bold; /* Жирний шрифт */
+    -fx-background-color: rgba(255, 255, 255, 0.3); /* Колір тла з прозорістю */
+    -fx-background-radius: 10px; /* Радіус межі */
+    -fx-min-width: 540px; /* Мінімальна ширина */
+    -fx-max-width: 540px; /* Максимальна ширина */
+    -fx-min-height: 550px; /* Мінімальна висота */
+    -fx-max-height: 550px; /* Максимальна висота */
+    -fx-translate-x: 30px; /* Горизонтальний зсув */
+    -fx-translate-y: 30px; /* Вертикальний зсув */
 }
 
 .message-label-right {
-    -fx-font-size: 20px;
-    -fx-font-weight: bold;
-    -fx-background-color: rgba(255, 255, 255, 0.3);
-    -fx-background-radius: 10px;
-    -fx-min-width: 540px; /* Жорстка ширина */
-    -fx-max-width: 540px; /* Жорстка ширина */
-    -fx-min-height: 550px; /* Жорстка висота */
-    -fx-max-height: 550px; /* Жорстка висота */
-    -fx-translate-x: 150px; /* Зміщення вправо на 20px */
-    -fx-translate-y: 30px;
+    /* Стилі мітки повідомлення справа */
+    -fx-font-size: 20px; /* Розмір шрифту */
+    -fx-font-weight: bold; /* Жирний шрифт */
+    -fx-background-color: rgba(255, 255, 255, 0.3); /* Колір тла з прозорістю */
+    -fx-background-radius: 10px; /* Радіус межі */
+    -fx-min-width: 540px; /* Мінімальна ширина */
+    -fx-max-width: 540px; /* Максимальна ширина */
+    -fx-min-height: 550px; /* Мінімальна висота */
+    -fx-max-height: 550px; /* Максимальна висота */
+    -fx-translate-x: 150px; /* Горизонтальний зсув */
+    -fx-translate-y: 30px; /* Вертикальний зсув */
 }
 
-.message-label {
-    -fx-font-size: 20px; /* Розмір шрифту */
-    -fx-font-weight: bold; /* Жирний стиль шрифту */
+.view-label {
+    /* Стилі мітки перегляду */
+    -fx-font-size: 30px; /* Розмір шрифту */
+    -fx-font-weight: bold; /* Жирний шрифт */
     -fx-text-fill: #333333; /* Колір тексту */
-    -fx-font-family: "Arial"; /* Шрифт */
-    -fx-text-alignment: left; /* Вирівнювання тексту по лівому краю */
-    /* Додайте інші властивості за потреби */
+    -fx-font-family: "Arial"; /* Сімейство шрифтів */
+    -fx-translate-x: 200px; /* Горизонтальний зсув */
+    /* Додати інші властивості за потреби */
+}
+
+.meal-info {
+    /* Стилі контейнера інформації про страви */
+    -fx-spacing: 5px; /* Відстань між елементами всередині контейнера */
 }
 
 .meal-name {
-    -fx-font-size: 24px; /* Розмір шрифту для назви страви */
-    -fx-font-weight: bold; /* Жирний стиль шрифту для назви страви */
-    -fx-text-fill: #FFA500; /* Колір тексту для назви страви */
+    /* Стилі назви страви */
+    -fx-font-weight: bold; /* Жирний шрифт */
+    -fx-text-fill: #333333; /* Колір тексту */
+}
+
+.meal-price {
+    /* Стилі ціни страви */
+    -fx-font-style: italic; /* Курсивний шрифт */
+    -fx-text-fill: #555555; /* Колір тексту */
 }
 
 .meal-description {
-    -fx-font-size: 18px; /* Розмір шрифту для опису страви */
-    -fx-font-weight: normal; /* Нормальний стиль шрифту для опису страви */
-    -fx-text-fill: #666666; /* Колір тексту для опису страви */
+    /* Стилі опису страви */
+    -fx-text-fill: #666666; /* Колір тексту */
+}
+
+.drink-info {
+    /* Стилі контейнера інформації про напої */
+    -fx-spacing: 5px; /* Відстань між елементами всередині контейнера */
+}
+
+.drink-name {
+    /* Стилі назви напою */
+    -fx-font-weight: bold; /* Жирний шрифт */
+    -fx-text-fill: #333333; /* Колір тексту */
+}
+
+.drink-price {
+    /* Стилі ціни напою */
+    -fx-font-style: italic; /* Курсивний шрифт */
+    -fx-text-fill: #555555; /* Колір тексту */
+}
+
+.drink-description {
+    /* Стилі опису напою */
+    -fx-text-fill: #666666; /* Колір тексту */
 }
