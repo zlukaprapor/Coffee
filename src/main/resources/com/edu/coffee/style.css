@@ -22,11 +22,24 @@
     -fx-padding: 2px; /* Відступ всередині кнопки */
 }
 
+
 .button:pressed, .button:focused {
     /* Стилі кнопок при натисканні або фокусі */
     -fx-background-color: #FCAD38; /* Колір тла */
 }
 
+.buy-button {
+    -fx-min-width: 40px;
+    -fx-min-height: 40px;
+    -fx-max-width: 40px;
+    -fx-max-height: 40px;
+    -fx-border-radius: 0px;
+
+}
+.buy-button:pressed {
+    /* Стилі кнопок при натисканні або фокусі */
+    -fx-background-color: #FCAD38; /* Колір тла */
+}
 .message-label-left {
     /* Стилі мітки повідомлення зліва */
     -fx-font-size: 20px; /* Розмір шрифту */
