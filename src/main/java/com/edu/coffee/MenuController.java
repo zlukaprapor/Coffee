@@ -43,6 +43,7 @@ public class MenuController {
      */
     @FXML
     private void ordersButtonClicked() {
+
         messageLabelRight.setText("Привіт! Це Замовлення.");
     }
 
@@ -52,6 +53,7 @@ public class MenuController {
      */
     @FXML
     private void queueButtonClicked() {
+
         messageLabelRight.setText("Привіт! Це Черга.");
     }
 
@@ -61,6 +63,7 @@ public class MenuController {
      */
     @FXML
     private void optionsButtonClicked() {
+
         messageLabelRight.setText("Привіт! Це Опції.");
     }
 

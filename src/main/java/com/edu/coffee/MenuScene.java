@@ -1,6 +1,9 @@
 package com.edu.coffee;
 
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 
 import java.util.List;
@@ -29,13 +32,32 @@ public class MenuScene {
         for (Item meal : meals) {
             Label nameLabel = new Label("Назва: " + meal.getName());
             nameLabel.getStyleClass().add("meal-name");
-            Label priceLabel = new Label("Ціна: " + meal.getPrice());
-            priceLabel.getStyleClass().add("meal-price");
             Label dishesLabel = new Label("Страви: " + meal.getDishes());
             dishesLabel.getStyleClass().add("meal-description");
-            VBox mealInfo = new VBox(nameLabel, priceLabel, dishesLabel);
+            Label priceLabel = new Label("Ціна: " + meal.getPrice());
+            priceLabel.getStyleClass().add("meal-price");
+
+            // Створення кнопки з зображенням для купівлі
+            Button buyButton = new Button();
+            buyButton.getStyleClass().clear();// Видаляє всі класи стилів, що застосовуються до кнопки
+            Image buyImage = new Image(MenuScene.class.getResource("/com/edu/coffee/img/buy.png").toExternalForm()); // шлях до  зображення
+            ImageView buyImageView = new ImageView(buyImage);
+            buyImageView.setFitWidth(42);  // встановлення ширини зображення
+            buyImageView.setFitHeight(42); // встановлення висоти зображення
+            buyButton.setGraphic(buyImageView);
+            buyButton.getStyleClass().add("buy-button");// Додавання стилів до кнопки з зображенням
+
+            // Додавання дій для кнопки
+            buyButton.setOnAction(event -> {
+                // Дії при натисканні кнопки купівлі
+                System.out.println("Куплено: " + meal.getName());
+            });
+
+            VBox mealInfo = new VBox(nameLabel, dishesLabel, priceLabel, buyButton);
             mealInfo.getStyleClass().add("meal-info");
             mealBox.getChildren().add(mealInfo);
+
+
         }
         // Встановлення графічного зображення VBox з обідами у мітку messageLabelLeft
         messageLabelLeft.setGraphic(mealBox);
