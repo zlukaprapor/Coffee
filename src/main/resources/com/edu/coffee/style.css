@@ -9,13 +9,17 @@
     /* Стилі кнопок */
     -fx-min-width: 200px; /* Мінімальна ширина */
     -fx-max-width: 200px; /* Максимальна ширина */
-    -fx-min-height: 40px; /* Мінімальна висота */
-    -fx-max-height: 40px; /* Максимальна висота */
+    -fx-min-height: 38px; /* Мінімальна висота */
+    -fx-max-height: 38px; /* Максимальна висота */
+    -fx-border-color: black; /* Колір межі */
+    -fx-border-width: 2px; /* Ширина межі */
+    -fx-border-radius: 25px; /* Радіус межі (більше, ніж радіус фону) */
     -fx-background-color: #E8BD24; /* Колір тла */
-    -fx-background-radius: 10px; /* Радіус межі */
+    -fx-background-radius: 20px; /* Радіус межі */
     -fx-translate-y: 10px; /* Вертикальний зсув */
     -fx-font-size: 20px; /* Розмір шрифту */
     -fx-font-weight: bold; /* Жирний шрифт */
+    -fx-padding: 2px; /* Відступ всередині кнопки */
 }
 
 .button:pressed, .button:focused {
