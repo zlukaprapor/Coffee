@@ -30,15 +30,14 @@ public class MenuScene {
         List<Item> meals = Item.readMeals();
         // Додавання інформації про обіди до VBox
         for (Item meal : meals) {
-            Label nameLabel = new Label("Назва: " + meal.getName());
+            Label nameLabel = new Label(meal.getName());
             nameLabel.getStyleClass().add("meal-name");
-            Label dishesLabel = new Label("Страви: " + meal.getDishes());
+            Label dishesLabel = new Label(meal.getDishes());
             dishesLabel.getStyleClass().add("meal-description");
             Label priceLabel = new Label("Ціна: " + meal.getPrice());
             priceLabel.getStyleClass().add("meal-price");
 
-            // Створення кнопки з зображенням для купівлі
-            Button buyButton = new Button();
+            Button buyButton = new Button();// Створення кнопки з зображенням для купівлі
             buyButton.getStyleClass().clear();// Видаляє всі класи стилів, що застосовуються до кнопки
             Image buyImage = new Image(MenuScene.class.getResource("/com/edu/coffee/img/buy.png").toExternalForm()); // шлях до  зображення
             ImageView buyImageView = new ImageView(buyImage);
