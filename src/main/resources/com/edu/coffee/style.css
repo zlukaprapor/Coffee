@@ -22,7 +22,6 @@
     -fx-padding: 2px; /* Відступ всередині кнопки */
 }
 
-
 .button:pressed, .button:focused {
     /* Стилі кнопок при натисканні або фокусі */
     -fx-background-color: #FCAD38; /* Колір тла */
@@ -37,13 +36,15 @@
     -fx-translate-y: -50px;/* Зсув вверх */
     -fx-translate-x: 450px;/* Зсув по вертикалі */
 }
+
 .buy-button:pressed {
     /* Стилі кнопок при натисканні або фокусі */
     -fx-background-color: #FCAD38; /* Колір тла */
 }
+
 .message-label-left {
     /* Стилі мітки повідомлення зліва */
-    -fx-font-size: 20px; /* Розмір шрифту */
+    -fx-font-size: 18px; /* Розмір шрифту */
     -fx-font-weight: bold; /* Жирний шрифт */
     -fx-background-color: rgba(255, 255, 255, 0.3); /* Колір тла з прозорістю */
     -fx-background-radius: 10px; /* Радіус межі */
@@ -57,7 +58,7 @@
 
 .message-label-right {
     /* Стилі мітки повідомлення справа */
-    -fx-font-size: 20px; /* Розмір шрифту */
+    -fx-font-size: 18px; /* Розмір шрифту */
     -fx-font-weight: bold; /* Жирний шрифт */
     -fx-background-color: rgba(255, 255, 255, 0.3); /* Колір тла з прозорістю */
     -fx-background-radius: 10px; /* Радіус межі */
@@ -71,12 +72,11 @@
 
 .view-label {
     /* Стилі мітки перегляду */
-    -fx-font-size: 30px; /* Розмір шрифту */
+    -fx-font-size: 25px; /* Розмір шрифту */
     -fx-font-weight: bold; /* Жирний шрифт */
     -fx-text-fill: #333333; /* Колір тексту */
     -fx-font-family: "Arial"; /* Сімейство шрифтів */
     -fx-translate-x: 200px; /* Горизонтальний зсув */
-    /* Додати інші властивості за потреби */
 }
 
 .meal-info {
@@ -86,6 +86,7 @@
 
 .meal-name {
     /* Стилі назви страви */
+    -fx-translate-x: 13px;/* Зсув по вертикалі */
     -fx-font-weight: bold; /* Жирний шрифт */
     -fx-text-fill: #333333; /* Колір тексту */
 }
@@ -94,11 +95,13 @@
     /* Стилі ціни страви */
     -fx-font-style: italic; /* Курсивний шрифт */
     -fx-text-fill: #555555; /* Колір тексту */
-    -fx-translate-x: 350px;/* Зсув по вертикалі */
+    -fx-translate-x: 320px;/* Зсув по вертикалі */
 }
 
 .meal-description {
     /* Стилі опису страви */
+    -fx-translate-x: 20px;/* Зсув по вертикалі */
+    -fx-font-size: 15px; /* Розмір шрифту */
     -fx-text-fill: #666666; /* Колір тексту */
 }
 
@@ -109,6 +112,7 @@
 
 .drink-name {
     /* Стилі назви напою */
+    -fx-translate-x: 13px;/* Зсув по вертикалі */
     -fx-font-weight: bold; /* Жирний шрифт */
     -fx-text-fill: #333333; /* Колір тексту */
 }
@@ -117,9 +121,12 @@
     /* Стилі ціни напою */
     -fx-font-style: italic; /* Курсивний шрифт */
     -fx-text-fill: #555555; /* Колір тексту */
+    -fx-translate-x: 320px;/* Зсув по вертикалі */
 }
 
 .drink-description {
     /* Стилі опису напою */
+    -fx-translate-x: 20px;/* Зсув по вертикалі */
+    -fx-font-size: 15px; /* Розмір шрифту */
     -fx-text-fill: #666666; /* Колір тексту */
 }
