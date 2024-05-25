@@ -34,7 +34,8 @@
     -fx-max-width: 40px;
     -fx-max-height: 40px;
     -fx-border-radius: 0px;
-
+    -fx-translate-y: -50px;/* Зсув вверх */
+    -fx-translate-x: 450px;/* Зсув по вертикалі */
 }
 .buy-button:pressed {
     /* Стилі кнопок при натисканні або фокусі */
@@ -93,6 +94,7 @@
     /* Стилі ціни страви */
     -fx-font-style: italic; /* Курсивний шрифт */
     -fx-text-fill: #555555; /* Колір тексту */
+    -fx-translate-x: 350px;/* Зсув по вертикалі */
 }
 
 .meal-description {
