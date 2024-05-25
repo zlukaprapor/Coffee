@@ -32,12 +32,19 @@ public class MenuScene {
         for (Item meal : meals) {
             Label nameLabel = new Label(meal.getName());
             nameLabel.getStyleClass().add("meal-name");
-            Label dishesLabel = new Label(meal.getDishes());
+            // Розділення та форматування страв
+            String dishes = meal.getDishes();
+            String[] dishesArray = dishes.split(", ");
+            StringBuilder formattedDishes = new StringBuilder();
+            for (String dish : dishesArray) {
+                formattedDishes.append(dish).append("\n");
+            }
+            Label dishesLabel = new Label(formattedDishes.toString());
             dishesLabel.getStyleClass().add("meal-description");
             Label priceLabel = new Label("Ціна: " + meal.getPrice());
             priceLabel.getStyleClass().add("meal-price");
-
-            Button buyButton = new Button();// Створення кнопки з зображенням для купівлі
+            // Створення кнопки з зображенням для купівлі
+            Button buyButton = new Button();
             buyButton.getStyleClass().clear();// Видаляє всі класи стилів, що застосовуються до кнопки
             Image buyImage = new Image(MenuScene.class.getResource("/com/edu/coffee/img/buy.png").toExternalForm()); // шлях до  зображення
             ImageView buyImageView = new ImageView(buyImage);
@@ -55,12 +62,10 @@ public class MenuScene {
             VBox mealInfo = new VBox(nameLabel, dishesLabel, priceLabel, buyButton);
             mealInfo.getStyleClass().add("meal-info");
             mealBox.getChildren().add(mealInfo);
-
-
         }
-        // Встановлення графічного зображення VBox з обідами у мітку messageLabelLeft
-        messageLabelLeft.setGraphic(mealBox);
 
+        // Встановлення графічного зображення VBox з напоїв у мітку messageLabelLeft
+        messageLabelLeft.setGraphic(mealBox);
         // Створення VBox для відображення напоїв
         VBox drinkBox = new VBox();
         // Додавання мітки для відображення заголовка "Напої:"
@@ -69,15 +74,38 @@ public class MenuScene {
         drinkBox.getChildren().add(viewLabelDrinks);
         // Отримання списку напоїв з класу Item
         List<Item> drinks = Item.readDrinks();
-        // Додавання інформації про напої до VBox
+        // Додавання інформації про напоїв до VBox
         for (Item drink : drinks) {
-            Label nameLabel = new Label("Назва: " + drink.getName());
+            Label nameLabel = new Label(drink.getName());
             nameLabel.getStyleClass().add("drink-name");
+            // Розділення та форматування напоїв
+            String dishes = drink.getDishes();
+            String[] dishesArray = dishes.split(", ");
+            StringBuilder formattedDishes = new StringBuilder();
+            for (String dish : dishesArray) {
+                formattedDishes.append(dish).append("\n");
+            }
+            Label dishesLabel = new Label(formattedDishes.toString());
+            dishesLabel.getStyleClass().add("drink-description");
             Label priceLabel = new Label("Ціна: " + drink.getPrice());
             priceLabel.getStyleClass().add("drink-price");
-            Label dishesLabel = new Label("Напої: " + drink.getDishes());
-            dishesLabel.getStyleClass().add("drink-description");
-            VBox drinkInfo = new VBox(nameLabel, priceLabel, dishesLabel);
+            // Створення кнопки з зображенням для купівлі
+            Button buyButton = new Button();
+            buyButton.getStyleClass().clear();// Видаляє всі класи стилів, що застосовуються до кнопки
+            Image buyImage = new Image(MenuScene.class.getResource("/com/edu/coffee/img/buy.png").toExternalForm()); // шлях до  зображення
+            ImageView buyImageView = new ImageView(buyImage);
+            buyImageView.setFitWidth(42);  // встановлення ширини зображення
+            buyImageView.setFitHeight(42); // встановлення висоти зображення
+            buyButton.setGraphic(buyImageView);
+            buyButton.getStyleClass().add("buy-button");// Додавання стилів до кнопки з зображенням
+
+            // Додавання дій для кнопки
+            buyButton.setOnAction(event -> {
+                // Дії при натисканні кнопки купівлі
+                System.out.println("Куплено: " + drink.getName());
+            });
+
+            VBox drinkInfo = new VBox(nameLabel, dishesLabel, priceLabel, buyButton);
             drinkInfo.getStyleClass().add("drink-info");
             drinkBox.getChildren().add(drinkInfo);
         }
