@@ -3,6 +3,7 @@ package com.edu.coffee;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
 
 import java.util.List;
 
@@ -48,15 +49,23 @@ public class MenuController {
      */
     @FXML
     private void ordersButtonClicked() {
-
         messageLabelLeft.setText("");
         messageLabelRight.setText("");
         messageLabelLeft.setGraphic(null);
         messageLabelRight.setGraphic(null);
-        // Отримання тексту замовлених елементів з OrdersScene
-        String orderedItemsText = OrdersScene.getOrderedItemsText();
-        // Встановлення тексту у відповідний лейбл
-        messageLabelLeft.setText(orderedItemsText);
+
+        VBox ordersBox = new VBox();
+        VBox ordersBox2 = new VBox();
+
+
+        // Встановлення інформації про замовлення
+        OrdersScene.setupOrdersScene(ordersBox);
+
+        OrdersScene.setup2OrdersScene(ordersBox2);
+
+        // Відображення даних на GUI
+        messageLabelLeft.setGraphic(ordersBox);
+        messageLabelRight.setGraphic(ordersBox2);
     }
 
     /**
@@ -65,13 +74,17 @@ public class MenuController {
      */
     @FXML
     private void queueButtonClicked() {
-
         messageLabelLeft.setText("");
         messageLabelRight.setText("");
         messageLabelLeft.setGraphic(null);
         messageLabelRight.setGraphic(null);
-        messageLabelLeft.setText("Привіт! Це Черга. messageLabelLeft");
-        messageLabelRight.setText("Привіт! Це Черга. messageLabelRight");
+
+        VBox ordersBox = new VBox();
+        VBox completedOrdersBox = new VBox();
+        QueueScene.setupQueueScene(ordersBox, completedOrdersBox);
+
+        messageLabelLeft.setGraphic(ordersBox);
+        messageLabelRight.setGraphic(completedOrdersBox);
     }
 
     /**
@@ -85,8 +98,13 @@ public class MenuController {
         messageLabelRight.setText("");
         messageLabelLeft.setGraphic(null);
         messageLabelRight.setGraphic(null);
-        messageLabelLeft.setText("Привіт! Це Опції. messageLabelLeft");
-        messageLabelRight.setText("Привіт! Це Опції. messageLabelRight");
+        VBox optionsBox = new VBox();
+        VBox optionsBox2 = new VBox();
+        OptionsScene.setupOptionsScene(optionsBox);
+        OptionsScene.updateDeleteOptions(optionsBox2);
+
+        messageLabelLeft.setGraphic(optionsBox);
+        messageLabelRight.setGraphic(optionsBox2);
     }
 
     /**
