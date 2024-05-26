@@ -1,58 +1,76 @@
 package com.edu.coffee;
 
+import javafx.application.Platform;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
-
+/**
+ * The OrdersScene class handles the display and management of orders in the coffee shop application.
+ * It provides methods to add, remove, and display items in the order list, as well as to set up scenes
+ * for viewing and processing orders.
+ */
 public class OrdersScene {
     private static List<Item> orderedItems = new ArrayList<>();
 
+    // Додає елемент до списку замовлень
     public static void addItemToOrder(Item item) {
         orderedItems.add(item);
     }
 
+    // Повертає список замовлених елементів
     public static List<Item> getOrderedItems() {
         return orderedItems;
     }
 
+    // Видаляє елемент зі списку замовлень
     public static void removeItemFromOrder(Item item) {
         orderedItems.remove(item);
     }
 
+    // Налаштовує сцену замовлень
     public static void setupOrdersScene(VBox ordersBox) {
+
         ordersBox.getChildren().clear();
-
-        long total = calculateTotal();
-        Label totalLabel = new Label("Загальна сума: " + total + " грн");
-        totalLabel.getStyleClass().add("total-label");
-        ordersBox.getChildren().add(totalLabel);
-
-        Label itemsLabel = new Label("Замовлені страви:");
-        itemsLabel.getStyleClass().add("items-label");
-        ordersBox.getChildren().add(itemsLabel);
+        // Додавання мітки для відображення заголовка "Корзина:"
+        Label viewLabel = new Label("Корзина:\n");
+        viewLabel.getStyleClass().add("view-label");
+        ordersBox.getChildren().add(viewLabel);
 
         for (Item item : orderedItems) {
+            // Створюємо мітку для відображення імені елемента
             Label itemLabel = new Label(item.getName());
-            itemLabel.getStyleClass().add("item-label");
+            itemLabel.getStyleClass().add("meal-name");
+            // Створюємо кнопку для видалення елемента зі списку
             Button removeButton = new Button("Видалити");
+            removeButton.getStyleClass().add("remove-button"); // Додавання стилів до кнопки
             removeButton.setOnAction(event -> {
+                // Видаляємо елемент зі списку та оновлюємо сцену
                 removeItemFromOrder(item);
-                setupOrdersScene(ordersBox); // Refresh the scene after removal
+                setupOrdersScene(ordersBox); // Оновлення сцени після видалення
             });
             ordersBox.getChildren().addAll(itemLabel, removeButton);
         }
     }
 
+    // Налаштовує сцену для оформлення замовлень
     public static void setup2OrdersScene(VBox ordersBox) {
+        long total = calculateTotal();
         ordersBox.getChildren().clear();
 
-        Label addOrderLabel = new Label("Додати нове замовлення:");
+        // Створення полів для введення даних
         TextField waiterNameField = new TextField();
         waiterNameField.setPromptText("Офіціант:");
         TextField tableNumberField = new TextField();
@@ -60,22 +78,53 @@ public class OrdersScene {
         TextField paymentTypeField = new TextField();
         paymentTypeField.setPromptText("Спосіб оплати:");
 
-        Button addOrderButton = new Button("Додати замовлення");
+        // Додавання мітки для відображення загальної суми
+        Label totalLabel = new Label("Загальна сума: " + total + " грн");
+        totalLabel.getStyleClass().add("total-label");
+        ordersBox.getChildren().add(totalLabel);
+
+        // Створення кнопки для оформлення замовлення
+        Button addOrderButton = new Button("Оформити");
+        addOrderButton.getStyleClass().add("addOrderButton");
         addOrderButton.setOnAction(event -> {
+            // Отримання даних з полів введення
             String name = waiterNameField.getText();
             String number = tableNumberField.getText();
             String type = paymentTypeField.getText();
             LocalTime currentTime = LocalTime.now();
             Order newOrder = new Order(currentTime, name, number, type);
             Order.addOrder(newOrder);
-            System.out.println("Додано нове замовлення");
+            // Створення нового вікна для повідомлення
+            Stage dialogStage = new Stage();
+            dialogStage.initModality(Modality.APPLICATION_MODAL);
+            dialogStage.setTitle("Нове замовлення");
+
+            // Додавання мітки з повідомленням
+            Label messageLabel = new Label("Додано нове замовлення");
+            StackPane layout = new StackPane(messageLabel);
+            Scene scene = new Scene(layout, 300, 100);
+            dialogStage.setScene(scene);
+
+            // Показуємо спливаюче вікно
+            dialogStage.show();
+
+            // Створення таймера для закриття вікна через 2 секунди
+            Timer timer = new Timer();
+            timer.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    Platform.runLater(dialogStage::close);
+                }
+            }, 2000);
         });
 
+        // Додавання всіх елементів до VBox
         ordersBox.getChildren().addAll(
-                addOrderLabel, waiterNameField, tableNumberField, paymentTypeField, addOrderButton
+                waiterNameField, tableNumberField, paymentTypeField, addOrderButton
         );
     }
 
+    // Розраховує загальну суму замовлення
     private static long calculateTotal() {
         long total = 0;
         for (Item item : orderedItems) {

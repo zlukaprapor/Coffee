@@ -13,9 +13,9 @@
     -fx-max-height: 38px; /* Максимальна висота */
     -fx-border-color: black; /* Колір межі */
     -fx-border-width: 2px; /* Ширина межі */
-    -fx-border-radius: 25px; /* Радіус межі (більше, ніж радіус фону) */
+    -fx-border-radius: 10px; /* Радіус межі (більше, ніж радіус фону) */
     -fx-background-color: #E8BD24; /* Колір тла */
-    -fx-background-radius: 20px; /* Радіус межі */
+    -fx-background-radius: 10px; /* Радіус межі */
     -fx-translate-y: 10px; /* Вертикальний зсув */
     -fx-font-size: 20px; /* Розмір шрифту */
     -fx-font-weight: bold; /* Жирний шрифт */
@@ -36,7 +36,10 @@
     -fx-translate-y: -50px;/* Зсув вверх */
     -fx-translate-x: 450px;/* Зсув по вертикалі */
 }
-
+.remove-button{
+    -fx-translate-y: -30px;/* Зсув вверх */
+    -fx-translate-x: 320px;/* Зсув по вертикалі */
+}
 .buy-button:pressed {
     /* Стилі кнопок при натисканні або фокусі */
     -fx-background-color: #FCAD38; /* Колір тла */
@@ -129,4 +132,12 @@
     -fx-translate-x: 20px;/* Зсув по вертикалі */
     -fx-font-size: 15px; /* Розмір шрифту */
     -fx-text-fill: #666666; /* Колір тексту */
+}
+.total-label{
+    -fx-translate-y: 160px; /* Вертикальний зсув */
+    -fx-translate-x: 30px; /* Горизонтальний зсув */
+}
+
+.addOrderButton{
+    -fx-translate-x: 300px; /* Горизонтальний зсув */
 }
