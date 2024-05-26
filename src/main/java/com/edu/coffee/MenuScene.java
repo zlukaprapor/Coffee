@@ -55,6 +55,7 @@ public class MenuScene {
 
             // Додавання дій для кнопки
             buyButton.setOnAction(event -> {
+                OrdersScene.addItemToOrder(meal);
                 // Дії при натисканні кнопки купівлі
                 System.out.println("Куплено: " + meal.getName());
             });
@@ -63,9 +64,9 @@ public class MenuScene {
             mealInfo.getStyleClass().add("meal-info");
             mealBox.getChildren().add(mealInfo);
         }
-
         // Встановлення графічного зображення VBox з напоїв у мітку messageLabelLeft
         messageLabelLeft.setGraphic(mealBox);
+
         // Створення VBox для відображення напоїв
         VBox drinkBox = new VBox();
         // Додавання мітки для відображення заголовка "Напої:"
@@ -101,6 +102,7 @@ public class MenuScene {
 
             // Додавання дій для кнопки
             buyButton.setOnAction(event -> {
+                OrdersScene.addItemToOrder(drink);
                 // Дії при натисканні кнопки купівлі
                 System.out.println("Куплено: " + drink.getName());
             });
