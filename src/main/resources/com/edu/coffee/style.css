@@ -141,3 +141,16 @@
 .addOrderButton{
     -fx-translate-x: 300px; /* Горизонтальний зсув */
 }
+
+.meal-name-queue{
+    -fx-min-width: 270px; /* Мінімальна ширина */
+    -fx-max-width: 270px; /* Максимальна ширина */
+    -fx-min-height: 40px; /* Мінімальна висота */
+    -fx-max-height: 40px; /* Максимальна висота */
+    -fx-translate-y: 20px; /* Вертикальний зсув */
+    -fx-translate-x: 30px; /* Горизонтальний зсув */
+}
+.completeButton{
+    -fx-translate-y: 20px; /* Вертикальний зсув */
+    -fx-translate-x: 60px; /* Горизонтальний зсув */
+}

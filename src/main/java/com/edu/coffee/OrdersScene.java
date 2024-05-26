@@ -42,7 +42,6 @@ public class OrdersScene {
 
     // Налаштовує сцену замовлень
     public static void setupOrdersScene(VBox ordersBox) {
-
         ordersBox.getChildren().clear();
         // Додавання мітки для відображення заголовка "Корзина:"
         Label viewLabel = new Label("Корзина:\n");
@@ -97,10 +96,10 @@ public class OrdersScene {
             // Створення нового вікна для повідомлення
             Stage dialogStage = new Stage();
             dialogStage.initModality(Modality.APPLICATION_MODAL);
-            dialogStage.setTitle("Нове замовлення");
+            dialogStage.setTitle("Чек");
 
             // Додавання мітки з повідомленням
-            Label messageLabel = new Label("Додано нове замовлення");
+            Label messageLabel = new Label("Чек надруковано");
             StackPane layout = new StackPane(messageLabel);
             Scene scene = new Scene(layout, 300, 100);
             dialogStage.setScene(scene);

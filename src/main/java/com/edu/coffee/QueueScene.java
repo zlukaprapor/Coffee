@@ -39,7 +39,9 @@ public class QueueScene {
         HBox orderItem = new HBox();
         String time = formatter.format(order.getOrderTime());
         Label orderLabel = new Label(order.getName() + " - " + order.getNumber() + " столик " + time);
+        orderLabel.getStyleClass().add("meal-name-queue");
         Button completeButton = new Button("Виконано");
+        completeButton.getStyleClass().add("completeButton");
 
         completeButton.setOnAction(event -> {
             ordersBox.getChildren().remove(orderItem);
@@ -62,12 +64,14 @@ public class QueueScene {
 
     private static void updateCompletedOrdersBox() {
         completedOrdersBox.getChildren().clear();
-        Label header = new Label("Виконані замовлення:");
+        Label header = new Label("Виконано:");
+        header.getStyleClass().add("view-label");
         completedOrdersBox.getChildren().add(header);
 
         for (Order order : completedOrdersQueue) {
             LocalTime currentTime = LocalTime.now();
             Label orderLabel = new Label(order.getName() + " - " + order.getNumber() + " столик, виконано: " + formatter.format(currentTime));
+            orderLabel.getStyleClass().add("meal-name");
             completedOrdersBox.getChildren().add(orderLabel);
         }
     }
