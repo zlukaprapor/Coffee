@@ -49,7 +49,6 @@
             <Label fx:id="messageLabelLeft" styleClass="message-label-left"/>
             <!-- Права мітка для повідомлень -->
             <Label fx:id="messageLabelRight" styleClass="message-label-right"/>
-            <!-- Додаткові елементи можна додати тут -->
         </HBox>
     </VBox>
 </StackPane>

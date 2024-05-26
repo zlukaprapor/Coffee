@@ -4,6 +4,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
+import java.util.List;
+
 /**
  * Клас-контролер для управління віджетами і обробки подій у GUI меню.
  */
@@ -27,13 +29,16 @@ public class MenuController {
     @FXML
     private Label messageLabelRight;
 
-
     /**
      * Обробник події натискання кнопки "Меню".
      * Викликає метод setupMenuScene з класу MenuScene, передаючи необхідні елементи Label.
      */
     @FXML
     private void menuButtonClicked() {
+        messageLabelLeft.setText("");
+        messageLabelRight.setText("");
+        messageLabelLeft.setGraphic(null);
+        messageLabelRight.setGraphic(null);
         MenuScene.setupMenuScene(messageLabelLeft, messageLabelRight);
     }
 
@@ -44,7 +49,14 @@ public class MenuController {
     @FXML
     private void ordersButtonClicked() {
 
-        messageLabelRight.setText("Привіт! Це Замовлення.");
+        messageLabelLeft.setText("");
+        messageLabelRight.setText("");
+        messageLabelLeft.setGraphic(null);
+        messageLabelRight.setGraphic(null);
+        // Отримання тексту замовлених елементів з OrdersScene
+        String orderedItemsText = OrdersScene.getOrderedItemsText();
+        // Встановлення тексту у відповідний лейбл
+        messageLabelLeft.setText(orderedItemsText);
     }
 
     /**
@@ -54,7 +66,12 @@ public class MenuController {
     @FXML
     private void queueButtonClicked() {
 
-        messageLabelRight.setText("Привіт! Це Черга.");
+        messageLabelLeft.setText("");
+        messageLabelRight.setText("");
+        messageLabelLeft.setGraphic(null);
+        messageLabelRight.setGraphic(null);
+        messageLabelLeft.setText("Привіт! Це Черга. messageLabelLeft");
+        messageLabelRight.setText("Привіт! Це Черга. messageLabelRight");
     }
 
     /**
@@ -64,7 +81,12 @@ public class MenuController {
     @FXML
     private void optionsButtonClicked() {
 
-        messageLabelRight.setText("Привіт! Це Опції.");
+        messageLabelLeft.setText("");
+        messageLabelRight.setText("");
+        messageLabelLeft.setGraphic(null);
+        messageLabelRight.setGraphic(null);
+        messageLabelLeft.setText("Привіт! Це Опції. messageLabelLeft");
+        messageLabelRight.setText("Привіт! Це Опції. messageLabelRight");
     }
 
     /**
