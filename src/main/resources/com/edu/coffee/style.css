@@ -154,3 +154,14 @@
     -fx-translate-y: 20px; /* Вертикальний зсув */
     -fx-translate-x: 60px; /* Горизонтальний зсув */
 }
+
+/* Задає прозорість для ScrollPane */
+.transparent-scroll-pane {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+}
+/* Задає прозорість для ScrollPane */
+.transparent-text-field {
+    -fx-background-color: transparent;
+    -fx-prompt-text-fill: rgba(28, 27, 27, 0.8);
+}

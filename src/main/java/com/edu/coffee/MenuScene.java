@@ -67,6 +67,8 @@ public class MenuScene {
         }
         // Обгортання VBox з обідами у ScrollPane
         ScrollPane mealScrollPane = new ScrollPane(mealBox);
+        // Додаємо CSS клас до ScrollPane
+        mealScrollPane.getStyleClass().add("transparent-scroll-pane");
         mealScrollPane.setFitToWidth(true); // Автоматично підганяти ширину під вміст
         messageLabelLeft.setGraphic(mealScrollPane);
 
@@ -117,6 +119,8 @@ public class MenuScene {
         // Обгортання VBox з напоями у ScrollPane
         ScrollPane drinkScrollPane = new ScrollPane(drinkBox);
         drinkScrollPane.setFitToWidth(true); // Автоматично підганяти ширину під вміст
+        // Додаємо CSS клас до ScrollPane
+        drinkScrollPane.getStyleClass().add("transparent-scroll-pane");
         messageLabelRight.setGraphic(drinkScrollPane);
     }
 }

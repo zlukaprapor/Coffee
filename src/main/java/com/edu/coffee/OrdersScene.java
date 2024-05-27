@@ -71,10 +71,13 @@ public class OrdersScene {
 
         // Створення полів для введення даних
         TextField waiterNameField = new TextField();
+        waiterNameField.getStyleClass().add("transparent-text-field");
         waiterNameField.setPromptText("Офіціант:");
         TextField tableNumberField = new TextField();
+        tableNumberField.getStyleClass().add("transparent-text-field");
         tableNumberField.setPromptText("Стіл:");
         TextField paymentTypeField = new TextField();
+        paymentTypeField.getStyleClass().add("transparent-text-field");
         paymentTypeField.setPromptText("Спосіб оплати:");
 
         // Додавання мітки для відображення загальної суми
