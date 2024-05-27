@@ -165,3 +165,21 @@
     -fx-background-color: transparent;
     -fx-prompt-text-fill: rgba(28, 27, 27, 0.8);
 }
+
+.meal-name-options {
+    /* Стилі назви страви */
+    -fx-font-size: 20px; /* Розмір шрифту */
+    -fx-translate-y: 10px; /* Горизонтальний зсув */
+    -fx-translate-x: 13px;/* Зсув по вертикалі */
+    -fx-font-weight: bold; /* Жирний шрифт */
+    -fx-text-fill: #333333; /* Колір тексту */
+}
+
+.meal-lable-options{
+    -fx-min-width: 270px; /* Мінімальна ширина */
+    -fx-max-width: 270px; /* Максимальна ширина */
+    -fx-min-height: 40px; /* Мінімальна висота */
+    -fx-max-height: 40px; /* Максимальна висота */
+    -fx-translate-y: 10px; /* Вертикальний зсув */
+    -fx-translate-x: 30px; /* Горизонтальний зсув */
+}

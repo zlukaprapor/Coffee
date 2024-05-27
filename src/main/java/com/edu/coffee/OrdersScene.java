@@ -99,7 +99,7 @@ public class OrdersScene {
             for (Item item : orderedItems) {
                 order.addNewItem(item);
             }
-            String list =  order.getImpotantList();
+            String list = order.getImpotantList();
 
             Order neworder = new Order(currentTime, null, name, number, type, total, list);
             Order.addOrder(neworder);
