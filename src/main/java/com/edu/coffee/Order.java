@@ -15,20 +15,44 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
+    private List<Item> items;
     private static final String FILE_PATH = "/com/edu/coffee/ordered.json";
-    private final LocalTime orderTime;
-    private final LocalTime completionTime;
-
+    private LocalTime orderTime;
+    private LocalTime completionTime;
     private String name;
     private String number;
     private String type;
+    private long total;
+    private String list;
 
-    public Order(LocalTime orderTime, String name, String number, String type) {
+    // Constructor initialization
+    public Order(LocalTime orderTime, LocalTime completionTime, String name, String number, String type, long total, String list) {
         this.orderTime = orderTime;
-        this.completionTime = orderTime.plusMinutes(30);
+        this.completionTime = completionTime;
         this.name = name;
         this.number = number;
         this.type = type;
+        this.total = total;
+        this.list = list;
+        this.items = new ArrayList<>(); // Initialize the items list
+    }
+
+    public void addNewItem(Item item) {
+        items.add(item);
+    }
+
+    public String getList() {
+        return list;
+    }
+
+    public String getImpotantList() {
+        StringBuilder list = new StringBuilder(); // Initialize StringBuilder
+        int i = 1;
+        for (Item item : items) {
+            list.append(i).append(" :").append(item.getName()).append("\n");
+            i++;
+        }
+        return list.toString();
     }
 
     public LocalTime getOrderTime() {
@@ -47,8 +71,17 @@ public class Order {
         return type;
     }
 
+    public Long getTotal() {
+        return total;
+    }
+
     public LocalTime getCompletionTime() {
         return completionTime;
+    }
+
+
+    public void setCompletionTime(LocalTime completionTime) {
+        this.completionTime = completionTime;
     }
 
     public static void addOrder(Order order) {
@@ -67,6 +100,8 @@ public class Order {
             itemObject.put("name", order.getName());
             itemObject.put("number", order.getNumber());
             itemObject.put("type", order.getType());
+            itemObject.put("total", order.getTotal());
+            itemObject.put("list", order.getList());
             mealsArray.add(itemObject);
         }
 
@@ -108,7 +143,9 @@ public class Order {
                         String name = (String) itemObject.get("name");
                         String number = (String) itemObject.get("number");
                         String type = (String) itemObject.get("type");
-                        orders.add(new Order(orderTime, name, number, type));
+                        Long total = (Long) itemObject.get("total");
+                        String list = (String) itemObject.get("list");
+                        orders.add(new Order(orderTime, orderTime, name, number, type, total, list));
                     }
                 }
             } else {

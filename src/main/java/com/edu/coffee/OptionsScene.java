@@ -15,7 +15,7 @@ import static com.edu.coffee.Item.removeDrink;
 
 public class OptionsScene {
 
-    public static void setupOptionsScene(VBox optionsBox) {
+    public static void setupOptionsScene(VBox leftBox, VBox rightBox) {
         Label addMealLabel = new Label("Додати нову страву:");
         TextField mealNameField = new TextField();
         mealNameField.setPromptText("Назва страви");
@@ -32,7 +32,7 @@ public class OptionsScene {
             Item newMeal = new Item(name, price, dishes);
             addMeal(newMeal);
             System.out.println("Додано нову страву: " + name);
-            updateDeleteOptions(optionsBox);
+            updateDeleteOptions(rightBox);
         });
 
         Label addDrinkLabel = new Label("Додати новий напій:");
@@ -51,7 +51,7 @@ public class OptionsScene {
             Item newDrink = new Item(name, price, dishes);
             addDrink(newDrink);
             System.out.println("Додано новий напій: " + name);
-            updateDeleteOptions(optionsBox);
+            updateDeleteOptions(rightBox);
         });
 
         VBox addOptionsBox = new VBox();
@@ -60,14 +60,11 @@ public class OptionsScene {
                 addDrinkLabel, drinkNameField, drinkPriceField, drinkDishesField, addDrinkButton
         );
 
-        optionsBox.getChildren().add(addOptionsBox);
+        leftBox.getChildren().add(addOptionsBox);
     }
 
-    public static void updateDeleteOptions(VBox optionsBox) {
-        optionsBox.getChildren().removeIf(node -> node instanceof VBox && ((VBox) node).getChildren().size() > 0 && ((VBox) node).getChildren().get(0) instanceof Label && (
-                ((Label) ((VBox) node).getChildren().get(0)).getText().equals("Видалити страву:") ||
-                        ((Label) ((VBox) node).getChildren().get(0)).getText().equals("Видалити напій:")
-        ));
+    public static void updateDeleteOptions(VBox rightBox) {
+        rightBox.getChildren().clear();
 
         VBox deleteOptionsBox = new VBox();
         Label deleteMealLabel = new Label("Видалити страву:");
@@ -80,7 +77,7 @@ public class OptionsScene {
             deleteMealButton.setOnAction(event -> {
                 removeMeal(meal);
                 System.out.println("Видалено страву: " + meal.getName());
-                updateDeleteOptions(optionsBox);
+                updateDeleteOptions(rightBox);
             });
             mealItem.getChildren().addAll(mealLabel, deleteMealButton);
             deleteOptionsBox.getChildren().add(mealItem);
@@ -96,12 +93,12 @@ public class OptionsScene {
             deleteDrinkButton.setOnAction(event -> {
                 removeDrink(drink);
                 System.out.println("Видалено напій: " + drink.getName());
-                updateDeleteOptions(optionsBox);
+                updateDeleteOptions(rightBox);
             });
             drinkItem.getChildren().addAll(drinkLabel, deleteDrinkButton);
             deleteOptionsBox.getChildren().add(drinkItem);
         }
 
-        optionsBox.getChildren().add(deleteOptionsBox);
+        rightBox.getChildren().add(deleteOptionsBox);
     }
 }

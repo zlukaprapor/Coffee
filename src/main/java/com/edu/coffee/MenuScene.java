@@ -5,6 +5,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
+import javafx.scene.control.ScrollPane;
 
 import java.util.List;
 
@@ -64,8 +65,10 @@ public class MenuScene {
             mealInfo.getStyleClass().add("meal-info");
             mealBox.getChildren().add(mealInfo);
         }
-        // Встановлення графічного зображення VBox з напоїв у мітку messageLabelLeft
-        messageLabelLeft.setGraphic(mealBox);
+        // Обгортання VBox з обідами у ScrollPane
+        ScrollPane mealScrollPane = new ScrollPane(mealBox);
+        mealScrollPane.setFitToWidth(true); // Автоматично підганяти ширину під вміст
+        messageLabelLeft.setGraphic(mealScrollPane);
 
         // Створення VBox для відображення напоїв
         VBox drinkBox = new VBox();
@@ -111,7 +114,9 @@ public class MenuScene {
             drinkInfo.getStyleClass().add("drink-info");
             drinkBox.getChildren().add(drinkInfo);
         }
-        // Встановлення графічного зображення VBox з напоями у мітку messageLabelRight
-        messageLabelRight.setGraphic(drinkBox);
+        // Обгортання VBox з напоями у ScrollPane
+        ScrollPane drinkScrollPane = new ScrollPane(drinkBox);
+        drinkScrollPane.setFitToWidth(true); // Автоматично підганяти ширину під вміст
+        messageLabelRight.setGraphic(drinkScrollPane);
     }
 }
