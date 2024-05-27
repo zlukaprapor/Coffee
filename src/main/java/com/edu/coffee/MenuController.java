@@ -93,18 +93,18 @@ public class MenuController {
      */
     @FXML
     private void optionsButtonClicked() {
-
         messageLabelLeft.setText("");
         messageLabelRight.setText("");
         messageLabelLeft.setGraphic(null);
         messageLabelRight.setGraphic(null);
-        VBox optionsBox = new VBox();
-        VBox optionsBox2 = new VBox();
-        OptionsScene.setupOptionsScene(optionsBox);
-        OptionsScene.updateDeleteOptions(optionsBox2);
+        VBox optionsBoxLeft = new VBox();
+        VBox optionsBoxRight = new VBox();
 
-        messageLabelLeft.setGraphic(optionsBox);
-        messageLabelRight.setGraphic(optionsBox2);
+        OptionsScene.setupOptionsScene(optionsBoxLeft, optionsBoxRight);
+        OptionsScene.updateDeleteOptions(optionsBoxRight);
+
+        messageLabelLeft.setGraphic(optionsBoxLeft);
+        messageLabelRight.setGraphic(optionsBoxRight);
     }
 
     /**

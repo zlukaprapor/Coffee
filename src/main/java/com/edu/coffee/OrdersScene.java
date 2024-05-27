@@ -64,7 +64,7 @@ public class OrdersScene {
         }
     }
 
-    // Налаштовує сцену для оформлення замовлень
+    // Nалаштовує сцену для оформлення замовлень
     public static void setup2OrdersScene(VBox ordersBox) {
         long total = calculateTotal();
         ordersBox.getChildren().clear();
@@ -91,15 +91,22 @@ public class OrdersScene {
             String number = tableNumberField.getText();
             String type = paymentTypeField.getText();
             LocalTime currentTime = LocalTime.now();
-            Order newOrder = new Order(currentTime, name, number, type);
-            Order.addOrder(newOrder);
+            Order order = new Order(currentTime, null, name, number, type, total, null);
+
+            for (Item item : orderedItems) {
+                order.addNewItem(item);
+            }
+            String list =  order.getImpotantList();
+
+            Order neworder = new Order(currentTime, null, name, number, type, total, list);
+            Order.addOrder(neworder);
+
             // Створення нового вікна для повідомлення
             Stage dialogStage = new Stage();
             dialogStage.initModality(Modality.APPLICATION_MODAL);
-            dialogStage.setTitle("Чек");
-
+            dialogStage.setTitle("Замовлення оформлене");
             // Додавання мітки з повідомленням
-            Label messageLabel = new Label("Чек надруковано");
+            Label messageLabel = new Label("Ок");
             StackPane layout = new StackPane(messageLabel);
             Scene scene = new Scene(layout, 300, 100);
             dialogStage.setScene(scene);
