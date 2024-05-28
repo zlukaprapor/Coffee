@@ -5,11 +5,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
-import java.util.List;
-
 /**
- * Клас-контролер для управління віджетами і обробки подій у GUI меню.
+ * A controller class for managing widgets and handling events in the GUI menu.
  */
+
 public class MenuController {
 
     @FXML
@@ -53,16 +52,11 @@ public class MenuController {
         messageLabelRight.setText("");
         messageLabelLeft.setGraphic(null);
         messageLabelRight.setGraphic(null);
-
         VBox ordersBox = new VBox();
         VBox ordersBox2 = new VBox();
-
-
         // Встановлення інформації про замовлення
         OrdersScene.setupOrdersScene(ordersBox);
-
         OrdersScene.setup2OrdersScene(ordersBox2);
-
         // Відображення даних на GUI
         messageLabelLeft.setGraphic(ordersBox);
         messageLabelRight.setGraphic(ordersBox2);
@@ -78,11 +72,9 @@ public class MenuController {
         messageLabelRight.setText("");
         messageLabelLeft.setGraphic(null);
         messageLabelRight.setGraphic(null);
-
         VBox ordersBox = new VBox();
         VBox completedOrdersBox = new VBox();
         QueueScene.setupQueueScene(ordersBox, completedOrdersBox);
-
         messageLabelLeft.setGraphic(ordersBox);
         messageLabelRight.setGraphic(completedOrdersBox);
     }
@@ -99,10 +91,8 @@ public class MenuController {
         messageLabelRight.setGraphic(null);
         VBox optionsBoxLeft = new VBox();
         VBox optionsBoxRight = new VBox();
-
         OptionsScene.setupOptionsScene(optionsBoxLeft, optionsBoxRight);
         OptionsScene.updateDeleteOptions(optionsBoxRight);
-
         messageLabelLeft.setGraphic(optionsBoxLeft);
         messageLabelRight.setGraphic(optionsBoxRight);
     }

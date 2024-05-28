@@ -7,23 +7,23 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 
 /**
- * Клас MainApp є точкою входу до додатка.
- * Він ініціалізує додаток JavaFX та завантажує головний макет FXML.
+ * The MainApp class is the entry point of the application.
+ * It initializes the JavaFX application and loads the main FXML layout.
  */
+
 public class MainApp extends Application {
 
     /**
-     * Метод start ініціалізує додаток JavaFX та налаштовує головний етап.
-     * Він завантажує головний макет FXML, встановлює назву етапу, розмір та сцену.
+     * The start method initializes the JavaFX application and sets up the primary stage.
+     * It loads the main FXML layout, sets the stage title, size, and scene.
      *
-     * @param primaryStage Головний етап додатку JavaFX.
-     * @throws Exception Якщо виникає помилка під час завантаження макета FXML.
+     * @param primaryStage The primary stage of the JavaFX application.
+     * @throws Exception If an error occurs during loading the FXML layout.
      */
     @Override
     public void start(Stage primaryStage) throws Exception {
         // Завантажуємо головний макет FXML
         Parent root = FXMLLoader.load(getClass().getResource("menu.fxml"));
-
         // Налаштовуємо головний етап
         primaryStage.setTitle("Соffee"); // Встановлюємо назву
         primaryStage.setResizable(false); // Вимикаємо можливість зміни розміру
@@ -34,11 +34,12 @@ public class MainApp extends Application {
     }
 
     /**
-     * Метод main є точкою входу до додатка.
-     * Він запускає додаток JavaFX.
+     * The main method is the entry point of the application.
+     * It launches the JavaFX application.
      *
-     * @param args Аргументи командного рядка.
+     * @param args The command line arguments.
      */
+
     public static void main(String[] args) {
         launch(args); // Запускаємо додаток JavaFX
     }

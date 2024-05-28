@@ -10,16 +10,17 @@ import javafx.scene.control.ScrollPane;
 import java.util.List;
 
 /**
- * Клас MenuScene відповідає за налаштування сцени з відображенням меню з обідами та напоями.
+ * The MenuScene class is responsible for setting up the scene displaying the menu with meals and drinks.
  */
-public class MenuScene {
 
+public class MenuScene {
     /**
-     * Метод setupMenuScene налаштовує сцену з відображенням обідів та напоїв.
+     * The setupMenuScene method sets up the scene displaying meals and drinks.
      *
-     * @param messageLabelLeft  мітка, в яку вставляється відображення обідів
-     * @param messageLabelRight мітка, в яку вставляється відображення напоїв
+     * @param messageLabelLeft  the label where the meals are displayed
+     * @param messageLabelRight the label where the drinks are displayed
      */
+
     public static void setupMenuScene(Label messageLabelLeft, Label messageLabelRight) {
         // Створення VBox для відображення обідів
         VBox mealBox = new VBox();
@@ -46,14 +47,18 @@ public class MenuScene {
             priceLabel.getStyleClass().add("meal-price");
             // Створення кнопки з зображенням для купівлі
             Button buyButton = new Button();
-            buyButton.getStyleClass().clear();// Видаляє всі класи стилів, що застосовуються до кнопки
-            Image buyImage = new Image(MenuScene.class.getResource("/com/edu/coffee/img/buy.png").toExternalForm()); // шлях до  зображення
+            // Видаляє всі класи стилів, що застосовуються до кнопки
+            buyButton.getStyleClass().clear();
+            // шлях до  зображення
+            Image buyImage = new Image(MenuScene.class.getResource("/com/edu/coffee/img/buy.png").toExternalForm());
             ImageView buyImageView = new ImageView(buyImage);
-            buyImageView.setFitWidth(42);  // встановлення ширини зображення
-            buyImageView.setFitHeight(42); // встановлення висоти зображення
+            // встановлення ширини зображення
+            buyImageView.setFitWidth(42);
+            // встановлення висоти зображення
+            buyImageView.setFitHeight(42);
             buyButton.setGraphic(buyImageView);
-            buyButton.getStyleClass().add("buy-button");// Додавання стилів до кнопки з зображенням
-
+            // Додавання стилів до кнопки з зображенням
+            buyButton.getStyleClass().add("buy-button");
             // Додавання дій для кнопки
             buyButton.setOnAction(event -> {
                 OrdersScene.addItemToOrder(meal);
@@ -69,7 +74,8 @@ public class MenuScene {
         ScrollPane mealScrollPane = new ScrollPane(mealBox);
         // Додаємо CSS клас до ScrollPane
         mealScrollPane.getStyleClass().add("transparent-scroll-pane");
-        mealScrollPane.setFitToWidth(true); // Автоматично підганяти ширину під вміст
+        // Автоматично підганяти ширину під вміст
+        mealScrollPane.setFitToWidth(true);
         messageLabelLeft.setGraphic(mealScrollPane);
 
         // Створення VBox для відображення напоїв
@@ -97,28 +103,32 @@ public class MenuScene {
             priceLabel.getStyleClass().add("drink-price");
             // Створення кнопки з зображенням для купівлі
             Button buyButton = new Button();
-            buyButton.getStyleClass().clear();// Видаляє всі класи стилів, що застосовуються до кнопки
-            Image buyImage = new Image(MenuScene.class.getResource("/com/edu/coffee/img/buy.png").toExternalForm()); // шлях до  зображення
+            // Видаляє всі класи стилів, що застосовуються до кнопки
+            buyButton.getStyleClass().clear();
+            // шлях до  зображення
+            Image buyImage = new Image(MenuScene.class.getResource("/com/edu/coffee/img/buy.png").toExternalForm());
             ImageView buyImageView = new ImageView(buyImage);
-            buyImageView.setFitWidth(42);  // встановлення ширини зображення
-            buyImageView.setFitHeight(42); // встановлення висоти зображення
+            // встановлення ширини зображення
+            buyImageView.setFitWidth(42);
+            // встановлення висоти зображення
+            buyImageView.setFitHeight(42);
             buyButton.setGraphic(buyImageView);
-            buyButton.getStyleClass().add("buy-button");// Додавання стилів до кнопки з зображенням
-
+            // Додавання стилів до кнопки з зображенням
+            buyButton.getStyleClass().add("buy-button");
             // Додавання дій для кнопки
             buyButton.setOnAction(event -> {
                 OrdersScene.addItemToOrder(drink);
                 // Дії при натисканні кнопки купівлі
                 System.out.println("Куплено: " + drink.getName());
             });
-
             VBox drinkInfo = new VBox(nameLabel, dishesLabel, priceLabel, buyButton);
             drinkInfo.getStyleClass().add("drink-info");
             drinkBox.getChildren().add(drinkInfo);
         }
         // Обгортання VBox з напоями у ScrollPane
         ScrollPane drinkScrollPane = new ScrollPane(drinkBox);
-        drinkScrollPane.setFitToWidth(true); // Автоматично підганяти ширину під вміст
+        // Автоматично підганяти ширину під вміст
+        drinkScrollPane.setFitToWidth(true);
         // Додаємо CSS клас до ScrollPane
         drinkScrollPane.getStyleClass().add("transparent-scroll-pane");
         messageLabelRight.setGraphic(drinkScrollPane);
